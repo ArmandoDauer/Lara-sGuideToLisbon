@@ -183,8 +183,8 @@
   <div id="menu">
     <button onclick="showView('home')" id="btn-home" class="active">Home</button>
     <button onclick="showView('perto')" id="btn-perto">Perto de Mim</button>
-    <button onclick="showView('armando')" id="btn-armando">Com Armando</button>
-    <button onclick="showView('bath')" id="btn-bath">Bath</button>
+    <button onclick="showView('paris')" id="btn-paris">Paris</button>
+    <button onclick="showView('chateau')" id="btn-chateau">Chateau</button>
   </div>
 
   <script>
@@ -328,11 +328,11 @@
       if(currentView==="home"){ list=locais; tit="Todos"; }
       else if(currentView==="perto"&&userMarker){ list=locais.filter(l=>map.distance(userMarker.getLatLng(),l.coords)<=500); tit="Até 500m"; }
       else if(currentView==="perto"&&!userMarker){ list=[]; tit="Perto de Mim"; }
-      else if(["armando","bath"].includes(currentView)){
-        list=locais.filter(l=>l.dia===currentView);
-        list.sort((a,b)=>(a.ordem||a._rowIndex)-(b.ordem||b._rowIndex));
-        tit = currentView==='armando' ? 'Com Armando' : 'Bath';
-      }
+      else if(["paris","chateau"].includes(currentView)){
+      list=locais.filter(l=>l.dia===currentView);
+      list.sort((a,b)=>(a.ordem||a._rowIndex)-(b.ordem||b._rowIndex));
+      tit = currentView==='paris' ? 'Paris' : 'Chateau';
+    }
 
       document.getElementById("sidebar-title").innerText=tit;
 
